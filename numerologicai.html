@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Юлия | Нумерологический портрет | Код души</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: radial-gradient(circle at 10% 20%, #0B0C1A, #03050B);
+            font-family: 'Inter', sans-serif;
+            color: #E9ECF5;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* custom scroll */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #14182B;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #6C47FF;
+            border-radius: 8px;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* градиентный заголовок с прозрачностью */
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 4.8rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #FFFFFF, #C084FC, #A855F7, #3B82F6);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: shimmer 6s linear infinite;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        .subhead {
+            font-size: 1.2rem;
+            color: #A9B4E2;
+            border-left: 3px solid #A855F7;
+            padding-left: 1rem;
+            margin-top: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* секции */
+        section {
+            margin: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            background: linear-gradient(120deg, #E2E8FF, #B4C4FF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            position: relative;
+        }
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(90deg, #A855F7, #3B82F6);
+            margin-top: 0.5rem;
+            border-radius: 3px;
+        }
+
+        /* карточки сетка */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .card {
+            background: rgba(20, 25, 45, 0.65);
+            backdrop-filter: blur(8px);
+            border-radius: 2rem;
+            padding: 1.8rem;
+            border: 1px solid rgba(168, 85, 247, 0.25);
+            transition: all 0.35s ease;
+            box-shadow: 0 12px 28px -8px rgba(0,0,0,0.4);
+        }
+
+        .card:hover {
+            transform: translateY(-12px);
+            border-color: #A855F7;
+            box-shadow: 0 25px 35px -12px rgba(168,85,247,0.3);
+            background: rgba(25, 30, 55, 0.85);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.7rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(135deg, #F0F3FF, #C4B5FD);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .card .badge {
+            display: inline-block;
+            background: #6C47FF20;
+            border-radius: 40px;
+            padding: 0.2rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #C9B6FF;
+            margin-bottom: 1rem;
+            border: 0.5px solid #6C47FF;
+        }
+
+        /* тезисные блоки */
+        .highlight-block {
+            background: linear-gradient(125deg, #10162E, #0A0E22);
+            border-left: 6px solid #FF6AC6;
+            padding: 1.5rem;
+            border-radius: 1.2rem;
+            margin: 1.8rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .highlight-block p {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .insight-text {
+            font-style: italic;
+            color: #C9C9FF;
+            border-left: 2px solid #A855F7;
+            padding-left: 1rem;
+        }
+
+        /* сетка тегов */
+        .tags-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 1.5rem 0;
+        }
+        .tag {
+            background: rgba(108, 71, 255, 0.15);
+            backdrop-filter: blur(2px);
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid rgba(168, 85, 247, 0.5);
+            transition: 0.2s;
+            letter-spacing: 0.2px;
+        }
+        .tag:hover {
+            background: #6C47FF;
+            color: white;
+            border-color: #fff;
+            transform: scale(1.02);
+        }
+
+        /* две колонки для контента */
+        .two-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        /* личная информация */
+        .profile-mini {
+            background: rgba(0,0,0,0.3);
+            border-radius: 1.5rem;
+            padding: 1.2rem 1.8rem;
+            display: inline-flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            align-items: baseline;
+        }
+
+        /* кнопки привязки (акцент) */
+        .accent-text {
+            color: #FFB86C;
+            font-weight: 600;
+        }
+
+        /* адаптив */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            .card h3 {
+                font-size: 1.4rem;
+            }
+            .hero-title {
+                font-size: 2.3rem;
+            }
+            section {
+                margin: 2.5rem 0;
+            }
+        }
+
+        /* дополнительная графика */
+        .gradient-line {
+            height: 2px;
+            background: linear-gradient(90deg, #A855F7, #3B82F6, #FF6AC6);
+            width: 100%;
+            margin: 1rem 0;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(168,85,247,0.3);
+            font-size: 0.8rem;
+            color: #7B88B0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    
+    <!-- шапка -->
+    <div class="profile-mini">
+        <span>✨ Юлия | 16.09.1993</span>
+        <span>🔮 Уровень Учителей · Проводник знаний</span>
+    </div>
+    <h1 class="hero-title">Код эзотерика<br>Космический конструктор</h1>
+    <div class="subhead">«Восстановить космический флот — зарисовать чертежи, приходящие во сне»</div>
+
+    <!-- КАРТОЧКИ: Миссия, Предназначение, Задача жизни (фундамент) -->
+    <div class="cards-grid">
+        <div class="card">
+            <div class="card-icon">🌀</div>
+            <div class="badge">Миссия • Аркан 11</div>
+            <h3>Астральный наставник</h3>
+            <p>Взаимодействие с эгрегорами, помощь людям обрести смысл жизни. Весь спектр экстрасенсорных способностей раскрывается через уединение и духовное развитие.</p>
+            <div class="highlight-block" style="margin-top: 1rem; padding: 1rem;">
+                📜 <strong>При невыполнении:</strong> физические/финансовые лишения, утраты, предательство близких.
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-icon">🛸</div>
+            <div class="badge">Предназначение • СЗ</div>
+            <h3>Учитель & Родитель</h3>
+            <p>Передать знания, опыт и таланты своим детям. Стать наставником, воспитателем, передать родовые коды. Генератор идей, «рожать красоту».</p>
+            <div class="highlight-block" style="margin-top: 1rem; padding: 1rem;">
+                🎁 Подарок: здоровые и успешные дети.<br>
+                ✨ Инструмент: воплощение идей в реальность.
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-icon">🏛️</div>
+            <div class="badge">Задача • 0–38 лет</div>
+            <h3>Фундаментальный строитель</h3>
+            <p>Строить с нуля: бизнес, тело, мышление. Проводник человечества в новый высокодуховный мир. Избавиться от гордыни, благодарить за помощь.</p>
+            <div class="highlight-block" style="margin-top: 1rem; padding: 1rem;">
+                💎 Инструмент: создавать из ничего. Подарок — имущество и высокий доход.
+            </div>
+        </div>
+    </div>
+
+    <!-- КОД ХРАНИТЕЛЯ (Конструктор) – особый блок -->
+    <section>
+        <h2 class="section-title">✨ 38.11.36.9 • Код Хранителя (Конструктор)</h2>
+        <div class="two-columns">
+            <div class="highlight-block" style="background: linear-gradient(135deg, #131A34, #0B0F22);">
+                <p>🔹 Высокоточное лазерное оружие, энергия эфира, руническое письмо. <strong>Технический склад ума</strong>, страсть к космическим технологиям. Слышите шумы/мелодии, невидимые другим.</p>
+                <p class="insight-text" style="margin-top: 0.8rem;">«Конструкторы собирали корабль из подручных средств — чинили, создавали оружие, обучали боевой магии»</p>
+            </div>
+            <div class="highlight-block" style="background: linear-gradient(135deg, #1E143A, #0D0822);">
+                <p>🚀 <strong>Задача воплощения:</strong> восстановить космический флот, зарисовывать чертежи из снов. Иначе — риск потери связи с телом, чувствительности.</p>
+                <p>⚙️ Энергия эфира + земли. Относитесь к редким конструкторам среди Хранителей.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- эзотерические способности + физиогномика -->
+    <section>
+        <h2 class="section-title">🔮 Эзотерические дары • 1/0</h2>
+        <div class="cards-grid">
+            <div class="card">
+                <h3 style="font-size:1.4rem;">Метафизик & Физиогномика</h3>
+                <p>Получение информации из ментального поля рода и планеты. Прогностика по лицу: здоровье, кармические болезни, родовые связи. Знаки на лице — отражение внутреннего мира.</p>
+                <div class="tags-grid" style="margin-top: 0.7rem;">
+                    <span class="tag">Чтение линий</span>
+                    <span class="tag">Кармические пятна</span>
+                    <span class="tag">Энергоканалы тела</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3 style="font-size:1.4rem;">999 • Ясновидение</h3>
+                <p>Чувствуете параллельные миры, слышите присутствие. Изучение мироздания усиливает экстрасенсорику.</p>
+                <p class="accent-text">369 — Стрела интеллекта: мощная память, логика, гениальность (Стивен Хокинг).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Карта рождения (характеристики в виде кратких тезисов)-->
+    <section>
+        <h2 class="section-title">📜 Карта рождения • ключи личности</h2>
+        <div class="two-columns">
+            <div>
+                <div class="highlight-block">
+                    <strong>🗣️ 11 — Управление речью</strong> — знаете что, кому и как сказать, красноречивы, артистичны.  <br>
+                    <strong>❤️ -2 — Крепкая психика</strong>, не плачете на людях, стойкость к стрессу.<br>
+                    <strong>🧠 3 — Хорошая память</strong> на любимое, структуры и логика.<br>
+                    <strong>📌 4 в имени — Порядок и терпение</strong>, аккуратность, принципиальность.
+                </div>
+                <div class="highlight-block">
+                    <strong>💪 5 в имени — Уверенность в себе, психолог.</strong> Знаете людей, независимая позиция.<br>
+                    <strong>🏠 6 — Дом как крепость</strong>, но не зациклены, создаёте уют везде.<br>
+                    <strong>⚡ -7 — Упрямство, наивность</strong>, но смелость и бесстрашие.
+                </div>
+            </div>
+            <div>
+                <div class="highlight-block">
+                    <strong>💰 77 в душе — Везунчик в деньгах</strong>, но банкротство если жадность. Щедрость.<br>
+                    <strong>🌍 -8 — Глобальное мышление</strong>, стратег, видите целиком картину мира.<br>
+                    <strong>✨ 8 в душе — Харизма, шарм</strong>, самодостаточный эталон.
+                </div>
+                <div class="highlight-block">
+                    <strong>📖 Изолированная 1</strong> — хранитель древних знаний, клятва правды, наказание за ложь.<br>
+                    <strong>🎯 Стержень Стратега</strong> — опережаете интеллектуально, лидерство, психологическая стратегия.
+                </div>
+            </div>
+        </div>
+        <div class="tags-grid">
+            <span class="tag">Высшие ценности: свобода</span>
+            <span class="tag">творчество</span>
+            <span class="tag">самореализация</span>
+        </div>
+    </section>
+
+    <!-- Родовая сила + архетип изобретатель -->
+    <section>
+        <h2 class="section-title">🌿 Родовая сила • Архетип Изобретатель</h2>
+        <div class="highlight-block">
+            <p><strong>➕ Положительные:</strong> независимое мышление, свобода на всех уровнях, озарения, инновации.</p>
+            <p><strong>➖ Отрицательные:</strong> чувствительность к контролю, бунт против шаблонов, девиз «свобода любой ценой», не терпит помощи.</p>
+            <p>📌 Задача: создать комфорт для всего Рода, преумножить капиталы и процветание.</p>
+        </div>
+    </section>
+
+    <!-- сетка инструментов - теги профессий -->
+    <section>
+        <h2 class="section-title">🛠️ Инструменты • Мастерство • Сфера талантов</h2>
+        <div class="tags-grid">
+            <span class="tag">Инженерия</span>
+            <span class="tag">Архитектура</span>
+            <span class="tag">Риелторство</span>
+            <span class="tag">Духовные практики</span>
+            <span class="tag">Трансформационный коуч</span>
+            <span class="tag">Программирование</span>
+            <span class="tag">Медицина</span>
+            <span class="tag">Преподавание</span>
+            <span class="tag">Ювелирное дело</span>
+            <span class="tag">SMM / ТикТок</span>
+            <span class="tag">Фриланс</span>
+            <span class="tag">Психология</span>
+            <span class="tag">Боевая магия</span>
+            <span class="tag">Травология</span>
+        </div>
+        <div class="insight-text" style="margin-top: 1rem;">«Любые профессии с общением: психолог, ведущий, менеджер по продажам, пиар — зона комфорта». Антизона: работа ради работы, трудоголизм.</div>
+    </section>
+
+    <!-- кармические узлы + точки препятствия -->
+    <section>
+        <h2 class="section-title">⚖️ Кармические узлы & Ошибки воплощений</h2>
+        <div class="two-columns">
+            <div class="card">
+                <h3>🔗 Узел 1</h3>
+                <p><span class="accent-text">Ошибка:</span> мешали другим получить достойное, вмешивались в судьбы. Искупление: не занимать чужое место, не давить на детей.</p>
+                <p>Обратка: ноги, автотравмы, блокировка успеха. Совет — помогайте приобретать имущество, отказывайтесь от незаработанного.</p>
+            </div>
+            <div class="card">
+                <h3>🔗 Узел 2</h3>
+                <p><span class="accent-text">Ошибка:</span> лишили человека дома, карьеры, семьи. Искупление: зависть, повреждение имущества.</p>
+                <p>Совет: помогайте людям с жильём, ремонтом, отдавайте лишнее имущество.</p>
+            </div>
+        </div>
+        <div class="highlight-block">
+            <strong>🚫 Точки препятствия (зона роста):</strong> нежелание иметь детей, чрезмерный контроль или отстранение от воспитания; эгоизм. После проработки — раскрытие целительства, власти без авторитарности, страсть и принцип «всё или ничего».
+        </div>
+    </section>
+
+    <!-- ЗАДАЧИ СУДЬБЫ по возрастам -->
+    <section>
+        <h2 class="section-title">📌 Задачи судьбы • 3 этапа</h2>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="badge">[0-38 лет]</div>
+                <h3>Фундаментальное развитие</h3>
+                <p>Стать строителем, разрушать стереотипы, выстраивать новую систему. Инструмент: создание с нуля. Подарок: имущество, высокий доход.</p>
+                <p><em>Профессии: инженерия, архитектура, МЧС, травматология, коучинг.</em></p>
+            </div>
+            <div class="card">
+                <div class="badge">[39-47 лет]</div>
+                <h3>Духовное наследие Рода</h3>
+                <p>Изучать эзотерику, традиции рода, помогать советом. Дар предвиденья. Одиночество как ресурс, но уделять внимание близким.</p>
+                <p>Профессии: медицина, наука, программирование, ювелир.</p>
+            </div>
+            <div class="card">
+                <div class="badge">[48+ лет]</div>
+                <h3>Качественные отношения</h3>
+                <p>Стать наставником для детей, другом человечеству. Избегать инфантильности, взять ответственность. Креатив, фриланс, многозадачность.</p>
+                <p>Энергия радости, оптимизм, лёгкость.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Прогноз на 32 года + здоровье, бизнес, отношения -->
+    <section>
+        <h2 class="section-title">🌟 Прогноз на 32 года • Золотая середина</h2>
+        <div class="highlight-block" style="background: linear-gradient(145deg, #171E3A, #0C1129);">
+            <p>🎁 <strong>Подарок, денежный займ, новые возможности в бизнесе.</strong> Вернут долги, финансовая помощь. <br>
+            ➕ Высокий уровень энергии, беременность/роды, успешные проекты. Нужно избегать жертвенности — «я главный для себя человек».</p>
+            <p class="insight-text">📖 Ошибка периода: причинять добро, из которого выжат ресурс. Ставьте себя в центр, но без надменности. Учитесь слышать, читайте Сенеку.</p>
+        </div>
+        <div class="two-columns">
+            <div class="highlight-block">
+                <h3 style="color:#FFB86C; margin-bottom:0.5rem;">💼 БИЗНЕС</h3>
+                <p>Развитие в нескольких направлениях, расширение партнеров, возврат клиентов. Формируйте сильную команду, лидерство приветствуется.</p>
+            </div>
+            <div class="highlight-block">
+                <h3 style="color:#FFB86C; margin-bottom:0.5rem;">❤️ ОТНОШЕНИЯ</h3>
+                <p>Благоприятные перемены, брак, зачатие. Нет страху — самореализация в обществе. Будьте щедрой, компромиссной, убирайте капризы.</p>
+            </div>
+        </div>
+        <div class="highlight-block">
+            <h3 style="color:#A5F3C3;">🌿 ЗДОРОВЬЕ & КРАСОТА</h3>
+            <p>Косметология, татуаж, творчество, духовные практики. Профилактика печени, баланс активности/покоя. Медитации, проработка психосоматики. Слабое место: голова, нервная система, лёгкие, сердце, спинной мозг.</p>
+            <div class="tags-grid" style="margin-top: 0.5rem;">
+                <span class="tag">Йога/медитации</span>
+                <span class="tag">Диетология</span>
+                <span class="tag">Чистка печени</span>
+                <span class="tag">Вегетарианство</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Города: Пушкин, Москва -->
+    <section>
+        <h2 class="section-title">🏙️ Энергетика городов</h2>
+        <div class="two-columns">
+            <div class="card">
+                <h3>Пушкин</h3>
+                <p>Кармичные знаки, сложности с автомобилем, вынужденные переезды. Риск строительных проблем, огня. Развивайте осознанную речь, берегите голову. Учитесь и передавайте знания.</p>
+            </div>
+            <div class="card">
+                <h3>Москва</h3>
+                <p>Спокойствие, предсказуемость, успешный ремесленный бизнес. Состояние равновесия. Плюсы: баланс, снижение веса. Минусы: конфликты с родом, глубокие родовые проработки.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ЗОНА КОМФОРТА и ЛОВУШКА -->
+    <section>
+        <h2 class="section-title">🌊 Зона комфорта • Ловушка судьбы</h2>
+        <div class="highlight-block">
+            <p><span class="accent-text">✅ Наполняет энергией:</span> признание, общение, дружелюбие, быть в центре (но не развлекая, а собирая информацию). Психолог, лекции, клубы, театры.</p>
+            <p><span class="accent-text">⚠️ Ловушка:</span> работа/трудоголизм, хроническое отсутствие работы, профессионализм ради профессии.</p>
+        </div>
+        <div class="insight-text">
+            💬 «Вы всё обо всех знаете — приходите на помощь, даёте совет. Носителям знака нужно много друзей и единомышленников».
+        </div>
+    </section>
+
+    <!-- Сожаление судьбы + мощный блок про прошлое -->
+    <section>
+        <h2 class="section-title">🕯️ Сожаление судьбы • Мудрость слова</h2>
+        <div class="highlight-block">
+            <p>В прошлой жизни не говорили правду, обманывали себя. Сожаления связаны с невысказанной любовью, ложью, шантажом. Сейчас придирчивы к словам и слишком прямолинейны. Освободитесь — <strong>простить себя и не пытаться искупить словами прошлого</strong>.</p>
+        </div>
+        <div class="tags-grid">
+            <span class="tag">Честность</span>
+            <span class="tag">Свобода речи</span>
+            <span class="tag">Знание ценности слов</span>
+        </div>
+    </section>
+
+    <!-- Графики жизни (цитата) -->
+    <section>
+        <h2 class="section-title">📈 Карьерный вектор & Личная жизнь</h2>
+        <div class="two-columns">
+            <div class="highlight-block">
+                <p>🟢 Средняя линия — благополучные периоды. Восходящие линии открывают успех. Бизнес открывать на пике карьерного роста. <br>Вы — демократичный руководитель-стратег, можете стать известной и прославить род.</p>
+            </div>
+            <div class="highlight-block">
+                <p>❤️ График личной жизни: растущие линии — эмоции, успех. Падающие — разочарования. Вы готовы продолжать и усовершенствовать Род. Две сильные влюблённости: до 28 и после 36 лет.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Нумерологическая консультация • Архетип "Изобретатель-Хранитель" • Путь стратега</p>
+        <p style="margin-top: 0.5rem;">«Разрушать стереотипы, строить новую реальность и помнить: свобода, творчество, самореализация — ваши высшие ценности»</p>
+    </footer>
+</div>
+</body>
+</html>
